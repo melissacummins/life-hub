@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, Plus, Menu, X } from 'lucide-react';
+import { Search, Menu, X } from 'lucide-react';
 import { useAppStore } from '../stores/appStore';
 import { Sidebar } from './Sidebar';
 import { SearchModal } from './SearchModal';

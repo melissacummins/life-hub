@@ -214,11 +214,12 @@ export const useAppStore = create<AppStore>()(
             ...nb,
             items: nb.items.map((item) => {
               if (item.type === 'table' && item.data.id === tableId) {
+                const table = item.data as Table;
                 return {
                   ...item,
                   data: {
-                    ...item.data,
-                    records: [...item.data.records, record],
+                    ...table,
+                    records: [...table.records, record],
                     updatedAt: new Date(),
                   },
                   updatedAt: new Date(),
@@ -236,11 +237,12 @@ export const useAppStore = create<AppStore>()(
             ...nb,
             items: nb.items.map((item) => {
               if (item.type === 'table' && item.data.id === tableId) {
+                const table = item.data as Table;
                 return {
                   ...item,
                   data: {
-                    ...item.data,
-                    records: item.data.records.map((record) =>
+                    ...table,
+                    records: table.records.map((record) =>
                       record.id === recordId
                         ? { ...record, properties, updatedAt: new Date() }
                         : record
@@ -262,11 +264,12 @@ export const useAppStore = create<AppStore>()(
             ...nb,
             items: nb.items.map((item) => {
               if (item.type === 'table' && item.data.id === tableId) {
+                const table = item.data as Table;
                 return {
                   ...item,
                   data: {
-                    ...item.data,
-                    records: item.data.records.filter((record) => record.id !== recordId),
+                    ...table,
+                    records: table.records.filter((record) => record.id !== recordId),
                     updatedAt: new Date(),
                   },
                   updatedAt: new Date(),
@@ -284,11 +287,12 @@ export const useAppStore = create<AppStore>()(
             ...nb,
             items: nb.items.map((item) => {
               if (item.type === 'table' && item.data.id === tableId) {
+                const table = item.data as Table;
                 return {
                   ...item,
                   data: {
-                    ...item.data,
-                    propertyDefinitions: [...item.data.propertyDefinitions, property],
+                    ...table,
+                    propertyDefinitions: [...table.propertyDefinitions, property],
                     updatedAt: new Date(),
                   },
                   updatedAt: new Date(),
@@ -306,11 +310,12 @@ export const useAppStore = create<AppStore>()(
             ...nb,
             items: nb.items.map((item) => {
               if (item.type === 'table' && item.data.id === tableId) {
+                const table = item.data as Table;
                 return {
                   ...item,
                   data: {
-                    ...item.data,
-                    propertyDefinitions: item.data.propertyDefinitions.map((prop) =>
+                    ...table,
+                    propertyDefinitions: table.propertyDefinitions.map((prop) =>
                       prop.id === propertyId ? { ...prop, ...updates } : prop
                     ),
                     updatedAt: new Date(),
@@ -330,14 +335,15 @@ export const useAppStore = create<AppStore>()(
             ...nb,
             items: nb.items.map((item) => {
               if (item.type === 'table' && item.data.id === tableId) {
+                const table = item.data as Table;
                 return {
                   ...item,
                   data: {
-                    ...item.data,
-                    propertyDefinitions: item.data.propertyDefinitions.filter(
+                    ...table,
+                    propertyDefinitions: table.propertyDefinitions.filter(
                       (prop) => prop.id !== propertyId
                     ),
-                    records: item.data.records.map((record) => ({
+                    records: table.records.map((record) => ({
                       ...record,
                       properties: record.properties.filter((p) => p.propertyId !== propertyId),
                     })),
@@ -366,11 +372,12 @@ export const useAppStore = create<AppStore>()(
             items: nb.items.map((item) => {
               if (item.id === itemId) {
                 if (item.type === 'note') {
+                  const note = item.data as Note;
                   return {
                     ...item,
                     data: {
-                      ...item.data,
-                      tags: item.data.tags.includes(tag) ? item.data.tags : [...item.data.tags, tag],
+                      ...note,
+                      tags: note.tags.includes(tag) ? note.tags : [...note.tags, tag],
                       updatedAt: new Date(),
                     },
                     updatedAt: new Date(),
@@ -393,11 +400,12 @@ export const useAppStore = create<AppStore>()(
             ...nb,
             items: nb.items.map((item) => {
               if (item.id === itemId && item.type === 'note') {
+                const note = item.data as Note;
                 return {
                   ...item,
                   data: {
-                    ...item.data,
-                    tags: item.data.tags.filter((t) => t !== tag),
+                    ...note,
+                    tags: note.tags.filter((t) => t !== tag),
                     updatedAt: new Date(),
                   },
                   updatedAt: new Date(),

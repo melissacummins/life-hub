@@ -11,7 +11,7 @@ interface NoteViewProps {
 }
 
 export function NoteView({ itemId, note }: NoteViewProps) {
-  const { updateNoteContent, addTagToItem, removeTagFromItem, tags } = useAppStore();
+  const { updateNoteContent, addTagToItem, removeTagFromItem } = useAppStore();
   const [isAddingTag, setIsAddingTag] = useState(false);
   const [newTag, setNewTag] = useState('');
 

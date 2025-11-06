@@ -146,7 +146,7 @@ export function CreateItemModal({ notebookId, onClose }: CreateItemModalProps) {
               </div>
 
               <div className="space-y-2">
-                {properties.map((prop, index) => (
+                {properties.map((prop) => (
                   <div key={prop.id} className="flex items-center gap-2">
                     <input
                       type="text"

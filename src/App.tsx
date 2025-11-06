@@ -29,7 +29,7 @@ function App() {
         currentItem.type === 'note' ? (
           <NoteView itemId={currentItem.id} note={currentItem.data as Note} />
         ) : (
-          <TableView itemId={currentItem.id} table={currentItem.data as Table} />
+          <TableView table={currentItem.data as Table} />
         )
       ) : (
         <div className="flex items-center justify-center h-full">

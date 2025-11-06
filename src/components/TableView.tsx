@@ -1,21 +1,18 @@
 import { useState } from 'react';
-import { Plus, Settings, MoreHorizontal, Trash2, Edit2 } from 'lucide-react';
+import { Plus, Trash2, Edit2 } from 'lucide-react';
 import { useAppStore } from '../stores/appStore';
 import { formatDate } from '../lib/utils';
 import type { Table, PropertyValue, PropertyDefinition } from '../types';
 
 interface TableViewProps {
-  itemId: string;
   table: Table;
 }
 
-export function TableView({ itemId, table }: TableViewProps) {
+export function TableView({ table }: TableViewProps) {
   const { addTableRecord, updateTableRecord, deleteTableRecord } = useAppStore();
   const [isAddingRecord, setIsAddingRecord] = useState(false);
   const [editingRecordId, setEditingRecordId] = useState<string | null>(null);
   const [formData, setFormData] = useState<Record<string, any>>({});
-
-  const currentView = table.views[0]; // For now, just use the first view
 
   const handleAddRecord = () => {
     setIsAddingRecord(true);
