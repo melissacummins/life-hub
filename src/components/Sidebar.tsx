@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, FileText, Table2, ChevronDown, ChevronRight, MoreHorizontal } from 'lucide-react';
+import { Plus, FileText, Table2, ChevronDown, ChevronRight } from 'lucide-react';
 import { useAppStore } from '../stores/appStore';
 import { CreateNotebookModal } from './CreateNotebookModal';
 import { CreateItemModal } from './CreateItemModal';
